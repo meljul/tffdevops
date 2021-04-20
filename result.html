@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
     <head>
-        <title>Calculator Result</title>
+        <title>Result Operation</title>
 	</head>
 
 	<body align=center>
@@ -9,28 +9,24 @@
             <h1>CALCULATOR</h1>
 		</div>
         <br>
-        <form>
-            <h3>1st Number</h3>
-            <input type="number" id="entry1">
+        <form action="/" method="GET">
+            <h2>{{ entry1 }}</h2>
         <br>
         <br>
             <h2>+</h2>
         <br>
-            <h3>2nd Number</h3>
-            <input type="number" id="entry2">
+            <h2>{{ entry2 }}</h2>
+        <br>
+        <br>
+            <h2>=</h2>
+        <br>
+        <br>
+            <h2>{{ result }}</h2>
         <br>
         <br>
         <br>
-            <button type="submit" disabled><h3>Click to print Result</h3></button>
+            <input type="submit" value = "New Operation">
         </form>
-        <br>
-        <br>
-        <br>
-            <textarea rows="3" name="result" readonly></textarea>
-        <br>
-        <br>
-        <br>
-            <a href="form.html" target="_blank"><button type="submit"><h3>New Operation</h3></button></a>
         <br>
         <br>
         <br>
