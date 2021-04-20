@@ -12,10 +12,10 @@ def result():
     entry1 = request.form.get("entry1", type=int)
     entry2 = request.form.get("entry2", type=int)
 
-    result = entry1 + entry2
-
-    if result == None :
+    if (entry1 == None or entry2 == None) :
         return render_template('form.html')
+
+    result = entry1 + entry2
 
     return render_template('result.html',  htmlResult=result, htmlEntry1=entry1, htmlEntry2=entry2)
 
