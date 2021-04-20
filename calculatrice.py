@@ -4,15 +4,15 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 
 
-def resultat():
+def result():
     entry1 = request.form.get("entry1", type=int)
     entry2 = request.form.get("entry2", type=int)
     operation = request.form.get("operation")
     if(operation == 'Addition'):
-        resultat = entry1 + entry2
+        result = entry1 + entry2
     else:
-        resultat = 'Not a valid operation !'
-    entry = resultat
+        result = 'Not a valid operation !'
+    entry = result
 
 
 if __name__ == '__main__':
