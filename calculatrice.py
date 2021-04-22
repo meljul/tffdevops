@@ -15,9 +15,12 @@ def result():
     if (entry1 == None or entry2 == None) :
         return render_template('form.html')
 
-    result = entry1 + entry2
+    result = addition(entry1, entry2)
 
     return render_template('result.html',  htmlResult=result, htmlEntry1=entry1, htmlEntry2=entry2)
+
+def addition(nombre1, nombre2):
+    return nombre1 + nombre2
 
 
 if __name__ == '__main__':
