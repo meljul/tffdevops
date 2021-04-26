@@ -57,10 +57,23 @@ Configurer Kubernetes pour déployer automatiquement la dernière image de Docke
 Docker
 -------
 pour installer docker, dl le script offciel
+
  curl -fsSL https://get.docker.com -o get-docker.sh
 
 execute: 
+
  sudo sh get-docker.sh
 
 se rajouter au groupe docker:
+
 sudo usermod -aG docker <your-user>
+
+-------
+Minikube
+-------
+Dowload du package:
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_arm64.deb
+
+installation du package
+sudo dpkg -i minikube_latest_arm64.deb
