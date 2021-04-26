@@ -5,7 +5,7 @@ LABEL maintainer "j.melard@outlook.com"
 RUN apk add --no-cache py3-pip
 
 # We copy just the requirements.txt first to leverage Docker cache
-COPY ./requirements.txt /app/requirements.txt
+COPY ./prod_requirements.txt /app/prod_requirements.txt
 
 WORKDIR /app
 

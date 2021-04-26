@@ -18,4 +18,6 @@ docker buildx use raspibuilder
 
 Activer et inspecter le nouvel environement :
 docker buildx inspect --bootstrap
-Cela va chercher l'image nécessaire a
+
+Lancer le build et le push sur docker hub. /!\ obligation de mettre en ligne pour image multi plateformes
+docker buildx build --platform linux/arm64,linux/amd64 --tag melaen/flaskalk:multi --push .
