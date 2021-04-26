@@ -1,5 +1,5 @@
 # tffdevops
-besoin de flask et de pytest
+Voir le fichier requierment.txt pour les outils pythons nécessaires
 
 
 #creer des images multiplatformes
