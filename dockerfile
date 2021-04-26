@@ -13,6 +13,8 @@ RUN pip3 install -r prod_requirements.txt
 
 COPY . /app
 
+EXPOSE 5000
+
 ENTRYPOINT [ "python3" ]
 
 CMD [ "calculatrice.py" ]
