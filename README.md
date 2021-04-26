@@ -47,12 +47,9 @@ Créer une tâche Jenkins pour que chaque modification dans la branche "Main" du
 en compte par Jenkins et soit prête pour envoyer vers DockerHub.
 Le système est automatisé et scrute les changements sur Github chaque minute.
 
-
 Créer une image docker avec le dernier repo récupérer et l'envoyer vers DockerHub :
 
-
-
-
+Lier Jenkins avec Kubernetes pour déployer automatiquement:
 
 Configurer Kubernetes pour déployer automatiquement la dernière image de DockerHub :
 
