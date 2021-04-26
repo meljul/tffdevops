@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: flaskalk
-        image: melaen/flaskalk:firsttry
+        image: melaen/flaskalk:multi
         ports:
         - containerPort: 5000
