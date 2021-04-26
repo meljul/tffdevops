@@ -1,3 +1,5 @@
+/!\ sudo iptables -P FORWARD ACCEPT pour accepter le forward réseau sur raspi après un reboot
+
 # tffdevops
 Voir le fichier requierment.txt pour les outils pythons nécessaires
 
