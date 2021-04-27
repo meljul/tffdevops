@@ -75,7 +75,10 @@ Programmer récupération :
 - (Ajouter un nom ou laisser jenkins en créer un aléatoire)
 - Spécifier branch to build : */main
 - Ce qui déclenche le build : Scrutation de l'outil de gestion de version : * * * * * (/minute)
+
+
 (TEST)
+
 Action à la suite du build : Notifier par email : Introduire email et cocher envoyer si build instable
 APPLY + SAVE
 
@@ -89,6 +92,8 @@ Créer un new pipeline multibranch :
 - Name : DockerHub
 - Branch Sources: Github (ajouter repo et pas creds)
 - Laisser le reste par défaut et save
+
+
 ## Configurer Kubernetes pour déployer automatiquement la dernière image de DockerHub :
 bla bla
 blabla
