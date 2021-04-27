@@ -3,6 +3,7 @@
 ---
 ---
 # TFF DevOps
+
 ---
 ---
 => Voir le fichier ***[requirements.txt](https://github.com/meljul/tffdevops/blob/main/requirements.txt)*** pour les outils python nécessaires. <=
@@ -54,7 +55,6 @@ docker buildx build --platform linux/arm64,linux/amd64 --tag melaen/flaskalk:mul
 ---
 ---
 # JENKINS
----
 ## Installer Jenkins sur Kubernetes pour déployer automatiquement :
 Installation de Jenkins via un fichier YML pour faciliter les prochaines installations.
 Installation faite sur Raspberry Pi, dans Kubernetes.
@@ -74,10 +74,10 @@ bla bla
 ## Configurer Kubernetes pour déployer automatiquement la dernière image de DockerHub :
 bla bla
 blabla
+
 ---
 ---
 # Docker
--------
 pour installer docker, dl le script offciel via la commande :
 
 ```sh
