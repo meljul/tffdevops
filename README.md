@@ -64,11 +64,12 @@ Aller dans la gestion des plugins pour ajouter ou vérifier l'existence de ces p
 - (D'autres à signaler ?)
 
 ## Automatiser la récupération du repo Github :
+
 Créer une tâche Jenkins pour que chaque modification dans la branche "Main" du repo Github soit prise
 en compte par Jenkins et soit prête pour envoyer vers DockerHub.
 Le système est automatisé, Github envoie une notification à Jenkins qui procède à la récupération.
 
-Ajouter les crendentials nécessaires:
+## Ajouter les crendentials nécessaires:
 
 - Manage Credential -> Global -> Add Crendentials
 - Type : SSH Username Private Key
@@ -78,7 +79,7 @@ Ajouter les crendentials nécessaires:
 - Passphrase : [PASSWORD]
 - OK
 
-Programmer récupération - build - push sur DockerHub: 
+## Programmer récupération - build - push sur DockerHub: 
 
 - New freestyle project
 
