@@ -65,9 +65,30 @@ Aller dans la gestion des plugins pour ajouter ou vérifier l'existence de ces p
 ## Automatiser la récupération du repo Github :
 Créer une tâche Jenkins pour que chaque modification dans la branche "Main" du repo Github soit prise en compte par Jenkins et soit prête pour envoyer vers DockerHub.
 Le système est automatisé et scrute les changements sur Github chaque minute.
+
+Étape SSH sur sreenshot
+Programmer récupération : 
+- New freestyle project
+- Description : Automatisation de la récupération du repo Github
+- Cocher Supprimer anciens Builds (7 jours max)
+- Gestion de code source avec Git et lier user Jenkins(SSH Github)
+- (Ajouter un nom ou laisser jenkins en créer un aléatoire)
+- Spécifier branch to build : */main
+- Ce qui déclenche le build : Scrutation de l'outil de gestion de version : * * * * * (/minute)
+(TEST)
+Action à la suite du build : Notifier par email : Introduire email et cocher envoyer si build instable
+APPLY + SAVE
+
 ## Créer une image docker avec le dernier repo récupérer et l'envoyer vers DockerHub :
-bla bla
-bla bla
+Nécessite plugin Docker
+
+Aller dans Manage Jenkins -> Manage crendential -> global -> add credential :
+- Entrer les identifiants DockerHub
+
+Créer un new pipeline multibranch : 
+- Name : DockerHub
+- Branch Sources: Github (ajouter repo et pas creds)
+- Laisser le reste par défaut et save
 ## Configurer Kubernetes pour déployer automatiquement la dernière image de DockerHub :
 bla bla
 blabla
