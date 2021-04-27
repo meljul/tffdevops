@@ -64,23 +64,52 @@ Aller dans la gestion des plugins pour ajouter ou vérifier l'existence de ces p
 - (D'autres à signaler ?)
 
 ## Automatiser la récupération du repo Github :
-Créer une tâche Jenkins pour que chaque modification dans la branche "Main" du repo Github soit prise en compte par Jenkins et soit prête pour envoyer vers DockerHub.
-Le système est automatisé et scrute les changements sur Github chaque minute.
+Créer une tâche Jenkins pour que chaque modification dans la branche "Main" du repo Github soit prise
+en compte par Jenkins et soit prête pour envoyer vers DockerHub.
+Le système est automatisé, Github envoie une notification à Jenkins qui procède à la récupération.
 
-Étape SSH sur sreenshot
-Programmer récupération : 
+Ajouter les crendentials nécessaires:
+
+- Manage Credential -> Global -> Add Crendentials
+- Type : SSH Username Private Key
+- ID : GitHubSSH
+- Username : Jenkins User
+- Private key : Enter directly : [PASTE KEY]
+- Passphrase : [PASSWORD]
+- OK
+
+Programmer récupération - build - push sur DockerHub: 
+
 - New freestyle project
-- Description : Automatisation de la récupération du repo Github
-- Cocher Supprimer anciens Builds (7 jours max)
+
+- Description : Auto récupération du repo Github, build et push image sur DockerHub
+- Cocher GitHub Project
+- Ajouter URL projet : https://github.com/meljul/tffdevops/
+- Cocher Supprimer anciens Builds
+- Supprimer anciens builds après 7j
+
 - Gestion de code source avec Git et lier user Jenkins(SSH Github)
-- (Ajouter un nom ou laisser jenkins en créer un aléatoire)
 - Spécifier branch to build : */main
-- Ce qui déclenche le build : Scrutation de l'outil de gestion de version : * * * * * (/minute)
+- Ce qui déclenche le build : GitHub hook trigger for GITScm polling (notification GiHub)
 
+- Environnements de build : Use secret text(s) or file(s)
+- Username and password (seperated) -> Ajout des variables utilisées + lier compte DockerHub
+- Ajouter éxécution script shell : 
+---
+virtualenv venv
+. venv/bin/activate 
+pip install -r requirements.txt
+pytest 
+---
+- Ajouter éxécution second script shell : 
+---
+docker login -u $username_dockerhub -p $passwd_dockerhub
+docker buildx build --platform linux/arm64,linux/amd64 --tag melaen/flaskalk:multi --push .
+docker logout
+---
 
-(TEST)
+- Action à la suite du build : Notifier par email : Add email et cocher envoyer si build instable
 
-Action à la suite du build : Notifier par email : Introduire email et cocher envoyer si build instable
 APPLY + SAVE
 
 ## Créer une image docker avec le dernier repo récupérer et l'envoyer vers DockerHub :
