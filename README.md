@@ -3,9 +3,6 @@
 ---
 ---
 # TFF DevOps
-
----
----
 => Voir le fichier ***[requirements.txt](https://github.com/meljul/tffdevops/blob/main/requirements.txt)*** pour les outils python nécessaires. <=
 ## Créer des images multiplatformes
 Utiliser ***buildx*** (par défaut dans docker) et ***QEMU***.
