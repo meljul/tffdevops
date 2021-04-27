@@ -108,7 +108,6 @@ docker login -u $username_dockerhub -p $passwd_dockerhub
 docker buildx build --platform linux/arm64,linux/amd64 --tag melaen/flaskalk:multi --push .
 docker logout
 
-
 - Action à la suite du build : Notifier par email : Add email et cocher envoyer si build instable
 
 APPLY + SAVE
