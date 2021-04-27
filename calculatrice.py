@@ -20,7 +20,7 @@ def result():
     return render_template('result.html',  htmlResult=result, htmlEntry1=entry1, htmlEntry2=entry2)
 
 def addition(nombre1, nombre2):
-    return nombre1 + nombre2 + 1
+    return nombre1 + nombre2
 
 
 if __name__ == '__main__':
