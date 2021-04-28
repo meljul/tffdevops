@@ -4,7 +4,8 @@
 ---
 
 # TFF DevOps
-=> Voir le fichier ***[requirements.txt](https://github.com/meljul/tffdevops/blob/main/requirements.txt)*** pour les outils python nécessaires. <=
+=> Voir le fichier ***[requirements.txt](https://github.com/meljul/tffdevops/blob/main/requirements.txt)*** pour les outils python nécessaires. <=  
+
 => Consultez le ***[DockerHub](https://hub.docker.com/r/melaen/flaskalk)*** <=
 
 ## Créer des images multiplatformes :
@@ -58,19 +59,22 @@ docker buildx build --platform linux/arm64,linux/amd64 --tag melaen/flaskalk:mul
 
 # JENKINS
 ## Installer Jenkins sur Kubernetes pour déployer automatiquement :
-Installation de Jenkins via un fichier YML pour faciliter les prochaines installations.
+Installation de Jenkins via un fichier YML pour faciliter les prochaines installations.  
+
 Installation faite sur Raspberry Pi, dans Kubernetes.
 
 ## Ajout des plugins nécessaires :
 Aller dans la gestion des plugins pour ajouter ou vérifier l'existence de ces plugins : 
-> Git plugin
-> Kubernetes
-> Docker plugin
-> (D'autres à signaler ?)
+> Git plugin  
+> Kubernetes  
+> Docker plugin  
+> (D'autres à signaler ?)  
 
 ## Automatiser la récupération du repo Github :
-Créer une tâche Jenkins pour que chaque modification dans la branche "Main" du repo Github soit prise
-en compte par Jenkins et soit prête pour envoyer vers DockerHub.
+Créer une tâche Jenkins pour que chaque modification dans la branche "Main" du repo Github soit prise  
+
+en compte par Jenkins et soit prête pour envoyer vers DockerHub.  
+
 Le système est automatisé, Github envoie une notification à Jenkins qui procède à la récupération.
 
 ## Ajouter les crendentials nécessaires :
@@ -82,22 +86,22 @@ Le système est automatisé, Github envoie une notification à Jenkins qui proc�
 - ***Passphrase*** : [PASSWORD]
 - **OK**
 
-## -- Programmer récupération - build - push sur DockerHub --
+## Programmer récupération - build - push sur DockerHub :
 1) New freestyle project
  
-2) Description : Auto récupération du repo Github, build et push image sur DockerHub
-Cocher GitHub Project
-Ajouter URL projet : https://github.com/meljul/tffdevops/
-Cocher Supprimer anciens Builds
-Supprimer anciens builds après 7j
+2) Description : Auto récupération du repo Github, build et push image sur DockerHub  
+Cocher GitHub Project  
+Ajouter URL projet : https://github.com/meljul/tffdevops/  
+Cocher Supprimer anciens Builds  
+Supprimer anciens builds après 7j  
 
-3) Gestion de code source avec Git et lier user Jenkins(SSH Github)
-Spécifier branch to build : */main
-Ce qui déclenche le build : GitHub hook trigger for GITScm polling (notification GiHub)
+3) Gestion de code source avec Git et lier user Jenkins(SSH Github)  
+Spécifier branch to build : */main  
+Ce qui déclenche le build : GitHub hook trigger for GITScm polling (notification GiHub)  
 
-4) Environnements de build : Use secret text(s) or file(s)
-Username and password (seperated) -> Ajout des variables utilisées + lier compte DockerHub
-Ajouter éxécution script shell :
+4) Environnements de build : Use secret text(s) or file(s)  
+Username and password (seperated) -> Ajout des variables utilisées + lier compte DockerHub  
+Ajouter éxécution script shell :  
 
 ```sh
 virtualenv venv
@@ -106,7 +110,7 @@ pip install -r requirements.txt
 pytest 
 ```
 
-5) Ajouter éxécution second script shell :
+5) Ajouter éxécution second script shell :  
 
 ```sh
 docker login -u $username_dockerhub -p $passwd_dockerhub
@@ -114,22 +118,23 @@ docker buildx build --platform linux/arm64,linux/amd64 --tag melaen/flaskalk:mul
 docker logout
 ```
 
-6) Action à la suite du build : Notifier par email -> Add email et cocher "envoyer si build instable"
-Appliquer et sauvegarder
+6) Action à la suite du build : Notifier par email -> Add email et cocher "envoyer si build instable"  
+Appliquer et sauvegarder  
 
 ## Créer une image docker avec le dernier repo récupérer et l'envoyer vers DockerHub :
-=> Nécessite le plugin Docker <=
+=> Nécessite le plugin Docker <=  
 
-Aller dans Manage Jenkins -> Manage crendential -> global -> add credential :
+Aller dans Manage Jenkins -> Manage crendential -> global -> add credential :  
 > Entrer les identifiants DockerHub
 
 Créer un new pipeline multibranch : 
-> **Name** : DockerHub
-> **Branch Sources :** Github (ajouter repo et pas creds)
-> Laisser le reste par défaut et save
+> **Name** : DockerHub  
+> **Branch Sources :** Github (ajouter repo et pas creds)  
+> Laisser le reste par défaut et save  
 
 ## Configurer Kubernetes pour déployer automatiquement la dernière image de DockerHub :
-bla bla
+bla bla  
+
 bla bla
 
 ---
