@@ -11,6 +11,7 @@ Utiliser ***buildx*** (par défaut dans docker) et ***QEMU***.
 - [Wiki](https://en.wikipedia.org/wiki/Binfmt_misc)
 - [GitHub](https://github.com/tonistiigi/binfmt)
 
+
 ```sh
 docker run --privileged --rm tonistiigi/binfmt --install all
 ```
