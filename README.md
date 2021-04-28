@@ -10,8 +10,8 @@
 ## Créer des images multiplatformes :
 Utiliser ***buildx*** (par défaut dans docker) et ***QEMU***.
 > Installer les composants **binfmt_misc** :  
--- [Wiki](https://en.wikipedia.org/wiki/Binfmt_misc)  
--- [GitHub](https://github.com/tonistiigi/binfmt)  
+> [Wiki](https://en.wikipedia.org/wiki/Binfmt_misc)  
+> [GitHub](https://github.com/tonistiigi/binfmt)  
 
 ```sh
 docker run --privileged --rm tonistiigi/binfmt --install all
