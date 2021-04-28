@@ -13,6 +13,7 @@ Utiliser ***buildx*** (par défaut dans docker) et ***QEMU***.
 > -- [Wiki](https://en.wikipedia.org/wiki/Binfmt_misc)
 > -- [GitHub](https://github.com/tonistiigi/binfmt)
 
+
 ```sh
 docker run --privileged --rm tonistiigi/binfmt --install all
 ```
@@ -131,6 +132,11 @@ Créer un new pipeline multibranch :
 ## -- Configurer Kubernetes pour déployer automatiquement la dernière image de DockerHub --
 bla bla
 bla bla
+<<<<<<< HEAD
+=======
+bla bla
+
+>>>>>>> 1161c44ee0487885f7a6e95209b0625d3c4942c9
 
 ---
 ---
