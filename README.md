@@ -126,7 +126,7 @@ Créer un new pipeline multibranch :
 
 ## Configurer Kubernetes pour déployer automatiquement la dernière image de DockerHub :
 bla bla
-blabla
+bla bla
 
 ---
 ---
