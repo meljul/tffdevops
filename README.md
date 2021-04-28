@@ -5,14 +5,13 @@
 
 # TFF DevOps
 => Voir le fichier ***[requirements.txt](https://github.com/meljul/tffdevops/blob/main/requirements.txt)*** pour les outils python nécessaires. <=  
-
 => Consultez le ***[DockerHub](https://hub.docker.com/r/melaen/flaskalk)*** <=
 
 ## Créer des images multiplatformes :
 Utiliser ***buildx*** (par défaut dans docker) et ***QEMU***.
-> Installer les composants **binfmt_misc** :
-- [Wiki](https://en.wikipedia.org/wiki/Binfmt_misc)
-- [GitHub](https://github.com/tonistiigi/binfmt)
+> Installer les composants **binfmt_misc** :  
+-- [Wiki](https://en.wikipedia.org/wiki/Binfmt_misc)  
+-- [GitHub](https://github.com/tonistiigi/binfmt)  
 
 ```sh
 docker run --privileged --rm tonistiigi/binfmt --install all
@@ -60,7 +59,6 @@ docker buildx build --platform linux/arm64,linux/amd64 --tag melaen/flaskalk:mul
 # JENKINS
 ## Installer Jenkins sur Kubernetes pour déployer automatiquement :
 Installation de Jenkins via un fichier YML pour faciliter les prochaines installations.  
-
 Installation faite sur Raspberry Pi, dans Kubernetes.
 
 ## Ajout des plugins nécessaires :
@@ -72,9 +70,7 @@ Aller dans la gestion des plugins pour ajouter ou vérifier l'existence de ces p
 
 ## Automatiser la récupération du repo Github :
 Créer une tâche Jenkins pour que chaque modification dans la branche "Main" du repo Github soit prise  
-
 en compte par Jenkins et soit prête pour envoyer vers DockerHub.  
-
 Le système est automatisé, Github envoie une notification à Jenkins qui procède à la récupération.
 
 ## Ajouter les crendentials nécessaires :
@@ -87,7 +83,7 @@ Le système est automatisé, Github envoie une notification à Jenkins qui proc�
 - **OK**
 
 ## Programmer récupération - build - push sur DockerHub :
-1) New freestyle project
+1) New freestyle project  
  
 2) Description : Auto récupération du repo Github, build et push image sur DockerHub  
 Cocher GitHub Project  
@@ -123,7 +119,6 @@ Appliquer et sauvegarder
 
 ## Créer une image docker avec le dernier repo récupérer et l'envoyer vers DockerHub :
 => Nécessite le plugin Docker <=  
-
 Aller dans Manage Jenkins -> Manage crendential -> global -> add credential :  
 > Entrer les identifiants DockerHub
 
@@ -134,7 +129,6 @@ Créer un new pipeline multibranch :
 
 ## Configurer Kubernetes pour déployer automatiquement la dernière image de DockerHub :
 bla bla  
-
 bla bla
 
 ---
