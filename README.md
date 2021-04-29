@@ -1,4 +1,4 @@
-/!\ sudo iptables -P FORWARD ACCEPT pour accepter le forward réseau sur raspi après un reboot.
+/!\ sudo iptables -P FORWARD ACCEPT pour accepter le forward réseau sur raspi après un reboot
 
 ---
 ---
