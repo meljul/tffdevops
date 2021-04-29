@@ -21,5 +21,6 @@ spec:
       containers:
       - name: flaskalk
         image: melaen/flaskalk:multi
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
