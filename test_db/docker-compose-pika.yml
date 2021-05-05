@@ -1,0 +1,23 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api/dockerfile_api
+    command: 'api.py'
+    ports:
+      - 8020:5000
+    volumes:
+      - .:/appd
+
+
+  web:
+    build:
+      context: .
+      dockerfile: web/dockerfile_web
+    command: 'web.py'
+    ports:
+      - 8010:5000
+    volumes:
+      - .:/app
+
